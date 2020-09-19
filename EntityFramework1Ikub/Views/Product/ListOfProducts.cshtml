@@ -1,0 +1,40 @@
+﻿@model List<EntityFramework1Ikub.Models.Product>
+@{
+    ViewBag.Title = "ListOfProducts";
+}
+
+<h2>ListOfProducts</h2>
+<div class="container">
+  <table class="table">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Brand Id</th>
+      <th>Category Id</th>
+      <th>Active</th>
+      <th>Date of Purchase</th>
+      <th>Availability Status</th>
+      <th>Actions</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+      <tr>
+        <td>@item.ProductID</td>
+        <td>@item.ProductName</td>
+        <td>@item.Price</td>
+        <td>@item.BrandID</td>
+        <td>@item.CategoryID</td>
+        <td>@item.Active</td>
+        <td>@item.DateOfPurchase</td>
+        <td>@item.AvailabilityStatus</td>
+        <td>
+          @Html.ActionLink("Details", "Details", new { @id=item.ProductID})
+          @Html.ActionLink("Delete", "Delete", new { @id = item.ProductID })
+          @Html.ActionLink("Edit", "Edit", new { @id = item.ProductID })
+        </td>
+      </tr>
+    }
+  </table>
+</div>
+

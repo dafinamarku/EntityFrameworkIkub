@@ -1,0 +1,115 @@
+﻿@model List<EntityFramework1Ikub.Models.Category>
+@{
+  ViewBag.Title = "Index";
+}
+
+<h2>Categories</h2>
+<div class="container">
+  <div class="form-inline">
+    @Html.ActionLink("Create", "Create", "Category", new { @class = "btn btn-primary" })
+    <br /><br />
+    @using (Html.BeginForm("Index", "Category", FormMethod.Get))
+    {
+      <div class="form-row">
+        <input type="search" class="form-control" id="search" name="search" placeholder="Search" value="@ViewBag.search">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+
+    }
+  </div>
+  <br /><br /><br />
+  <table class="table">
+    <tr>
+      <th style="width:10%">
+        @if (ViewBag.IconClass == "fa-sort-desc")
+        {
+          @Html.ActionLink("ID", "Index", "Category", new { @SortColumn = "CategoryID", @IconClass = "fa-sort-asc", @PageNo = 1 }, null)
+          if (ViewBag.SortColumn == "CategoryID")
+          {
+            <i class="fa @ViewBag.IconClass"></i>
+          }
+        }
+        else
+        {
+          @Html.ActionLink("ID", "Index", "Category", new { @SortColumn = "CategoryID", @IconClass = "fa-sort-desc", @PageNo = 1 }, null)
+          if (ViewBag.SortColumn == "CategoryID")
+          {
+            <i class="fa @ViewBag.IconClass"></i>
+          }
+        }
+      </th>
+      <th>
+        @if (ViewBag.IconClass == "fa-sort-desc")
+        {
+          @Html.ActionLink("Category Name", "Index", "Category", new { @SortColumn = "CategoryName", @IconClass = "fa-sort-asc", @PageNo = 1 }, null)
+          if (ViewBag.SortColumn == "CategoryName")
+          {
+            <i class="fa @ViewBag.IconClass"></i>
+          }
+        }
+        else
+        {
+          @Html.ActionLink("Category Name", "Index", "Category", new { @SortColumn = "CategoryName", @IconClass = "fa-sort-desc", @PageNo = 1 }, null)
+          if (ViewBag.SortColumn == "CategoryName")
+          {
+            <i class="fa @ViewBag.IconClass"></i>
+          }
+        }
+      </th>
+      <th>Actions</th>
+    </tr>
+    @foreach (var i in Model)
+    {
+      <tr>
+        <td>@i.CategoryID</td>
+        <td>@i.CategoryName</td>
+        <td>
+          @Html.ActionLink("Edit", "Edit", new { @id = i.CategoryID })
+          @Html.ActionLink("Details", "Details", new { @id = i.CategoryID })
+          @Html.ActionLink("Delete", "Delete", new { @id = i.CategoryID })
+        </td>
+      </tr>
+    }
+    <tr>
+      <td colspan="9">
+        @{
+          int PrevPageNo = ViewBag.PageNo - 1;
+          if (PrevPageNo <= 0)
+          {
+            PrevPageNo = 1;
+          }
+
+          int NextPageNo = ViewBag.PageNo + 1;
+          if (NextPageNo > ViewBag.NoOfPages)
+          {
+            NextPageNo = ViewBag.NoOfPages;
+          }
+        }
+        <ul class="pagination justify-content-center">
+          <li class="page-item">
+            @Html.ActionLink("Prev", "Index", "Category", new { @class = "page-link", @SortColumn = ViewBag.SortColumn, @IconClass = ViewBag.IconClass, @PageNo = PrevPageNo }, null)
+          </li>
+          @for (int i = 0; i < ViewBag.NoOfPages; i++)
+          {
+            if ((i + 1) == ViewBag.PageNo)
+            {
+              <li class="page-item active">
+                @Html.ActionLink((i + 1).ToString(), "Index", "Category", new { @class = "page-link", @SortColumn = ViewBag.SortColumn, @IconClass = ViewBag.IconClass, @PageNo = i + 1 }, null)
+              </li>
+            }
+            else
+            {
+              <li class="page-item">
+                @Html.ActionLink((i + 1).ToString(), "Index", "Category", new { @class = "page-link", @SortColumn = ViewBag.SortColumn, @IconClass = ViewBag.IconClass, @PageNo = i + 1 }, null)
+              </li>
+            }
+          }
+          <li class="page-item">
+            @Html.ActionLink("Next", "Index", "Category", new { @class = "page-link", @SortColumn = ViewBag.SortColumn, @IconClass = ViewBag.IconClass, @PageNo = NextPageNo }, null)
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+</div>
+

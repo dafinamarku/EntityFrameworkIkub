@@ -1,0 +1,19 @@
+﻿@model EntityFramework1Ikub.Models.Category
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details of @Model.CategoryName</h2>
+<div class="container">
+  <ul>
+    <li>
+      @Html.LabelFor(m=>m.CategoryID):
+      @Html.DisplayFor(m=>m.CategoryID)
+    </li>
+    <li>
+      @Html.LabelFor(m=>m.CategoryName):
+      @Html.DisplayFor(m=>m.CategoryName)
+    </li>
+  </ul>
+</div>
+

@@ -1,0 +1,32 @@
+﻿@model List<EntityFramework1Ikub.Models.Product>
+@{
+    ViewBag.Title = "storedProcedure";
+}
+
+<h2>Stored Procedure //BrandId=2</h2>
+<div class="container">
+  <table class="table">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Brand Id</th>
+      <th>Category Id</th>
+      <th>Active</th>
+      <th>Date of Purchase</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+      <tr>
+        <td>@item.ProductID</td>
+        <td>@item.ProductName</td>
+        <td>@item.Price</td>
+        <td>@item.BrandID</td>
+        <td>@item.CategoryID</td>
+        <td>@item.Active</td>
+        <td>@item.DateOfPurchase</td>
+      </tr>
+    }
+  </table>
+</div>
+

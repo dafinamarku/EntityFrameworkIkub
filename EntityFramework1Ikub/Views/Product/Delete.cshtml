@@ -1,0 +1,54 @@
+﻿@model EntityFramework1Ikub.Models.Product
+@{
+  ViewBag.Title = "Delete";
+}
+
+<h2>@Model.ProductName</h2>
+@using (Html.BeginForm("Delete", "Product", FormMethod.Post))
+{
+  @Html.HiddenFor(m=>m.ProductID)
+<div class="container">
+  <ul>
+    <li>
+      @Html.LabelFor(m => m.ProductID):
+      @Html.DisplayFor(m => m.ProductID)
+    </li>
+    <li>
+      @Html.LabelFor(m => m.ProductName):
+      @Html.DisplayFor(m => m.ProductName)
+    </li>
+    <li>
+      @Html.LabelFor(m => m.Price):
+      @Html.DisplayFor(m => m.Price)
+    </li>
+    <li>
+      @Html.LabelFor(m => m.Category.CategoryName):
+      @Html.DisplayFor(m => m.Category.CategoryName)
+    </li>
+    <li>
+      @Html.LabelFor(m => m.Brand.BrandName):
+      @Html.DisplayFor(m => m.Brand.BrandName)
+    </li>
+    <li>
+      @Html.LabelFor(m => m.AvailabilityStatus):
+      @Html.DisplayFor(m => m.AvailabilityStatus)
+    </li>
+    <li>
+      @Html.LabelFor(m => m.Active):
+      @Html.DisplayFor(m => m.Active)
+    </li>
+    <li>
+      @Html.LabelFor(m => m.DateOfPurchase):
+      @Html.DisplayFor(m => m.DateOfPurchase)
+    </li>
+  </ul>
+
+  <div class="row">
+    <h4>Do you want to delete @Model.ProductName? </h4>
+  </div>
+  <button type="submit" class="btn btn-success">Delete</button>
+  @Html.ActionLink("Cancel", "ListOfProducts", "Product", new { @class = "btn btn-danger" })
+</div>
+
+
+}

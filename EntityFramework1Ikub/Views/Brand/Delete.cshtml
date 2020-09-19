@@ -1,0 +1,28 @@
+﻿@model EntityFramework1Ikub.Models.Brand
+@{
+  ViewBag.Title = "Delete";
+}
+
+<h2>Do you want to delete @Model.BrandName?</h2>
+@using (Html.BeginForm("Delete", "Brand", FormMethod.Post))
+{
+  @Html.HiddenFor(m => m.BrandID)
+  <div class="container">
+    <ul>
+      <li>
+        @Html.LabelFor(m => m.BrandID):
+        @Html.DisplayFor(m => m.BrandID)
+      </li>
+      <li>
+        @Html.LabelFor(m => m.BrandName):
+        @Html.DisplayFor(m => m.BrandName)
+      </li>
+    </ul>
+
+    <button type="submit" class="btn btn-success">Delete</button>
+    @Html.ActionLink("Cancel", "Index", "Brand", new { @class = "btn btn-danger" })
+  </div>
+}
+
+
+

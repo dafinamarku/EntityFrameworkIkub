@@ -1,0 +1,27 @@
+﻿@model EntityFramework1Ikub.Models.Brand
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create a new brand</h2>
+<div class="container">
+  @using (Html.BeginForm("Create", "Brand", FormMethod.Post))
+  {
+    <div class="form-row">
+      <div class="col-md-6">
+        @Html.LabelFor(m => m.BrandName)
+        @Html.TextBoxFor(m => m.BrandName, new { @class = "form-control" })
+        <br />
+        @if (ViewBag.Message != null)
+        {
+          <div class="row text-danger">@ViewBag.Message</div><br />
+        }
+        <button type="submit" class="btn btn-success">Create</button>
+        @Html.ActionLink("Cancel", "Index", "Brand", new { @class = "btn btn-danger" })
+      </div>
+    </div>
+
+  }
+
+</div>
+

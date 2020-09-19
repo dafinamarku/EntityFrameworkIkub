@@ -1,0 +1,27 @@
+﻿@model EntityFramework1Ikub.Models.Category
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit @Model.CategoryName</h2>
+<div class="container">
+  @using (Html.BeginForm("Edit", "Category", FormMethod.Post))
+  {
+    @Html.HiddenFor(m => m.CategoryID)
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        @Html.LabelFor(m => m.CategoryName)
+        @Html.TextBoxFor(m => m.CategoryName, new { @class = "form-control" })
+        <br />
+        @if (ViewBag.Message != null)
+        {
+          <div class="row text-danger">@ViewBag.Message</div><br />
+        }
+        <button type="submit" class="btn btn-success">Edit</button>
+        @Html.ActionLink("Cancel", "Index", "Category", new { @class = "btn btn-danger" })
+      </div>
+    </div>
+  }
+
+</div>
+

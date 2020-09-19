@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework1Ikub", "EntityFramework1Ikub\EntityFramework1Ikub.csproj", "{75FB5DAA-859E-4AA1-82C5-EDF3F76970D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75FB5DAA-859E-4AA1-82C5-EDF3F76970D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75FB5DAA-859E-4AA1-82C5-EDF3F76970D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75FB5DAA-859E-4AA1-82C5-EDF3F76970D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75FB5DAA-859E-4AA1-82C5-EDF3F76970D2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {559F3528-1CCB-481E-ACD3-D470DAEDD70A}
+	EndGlobalSection
+EndGlobal
